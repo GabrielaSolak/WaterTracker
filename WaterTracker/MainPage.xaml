@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WaterTracker.MainPage"
+             BackgroundColor="LightBlue">
+
+    
+    <VerticalStackLayout Spacing="30">
+        <ImageButton Source="button_settings.png"
+                    HeightRequest="60"
+                    WidthRequest="60"
+                    HorizontalOptions="End"
+                    Margin="10,10,10,10" />
+
+        <Frame BackgroundColor="#0D1463"
+               Margin="0" Padding="0"
+               WidthRequest="230"
+               CornerRadius="25">
+            <Label Text="Pamiętaj o wodzie"
+               HorizontalTextAlignment="Center"
+               FontSize="24"
+               TextColor="#C4E3FF"
+               Margin="5"
+               Padding="0"
+               FontFamily="Jersey10"/>
+        </Frame>
+
+        <Frame BackgroundColor="#66E5F6FF" Padding="0"
+               WidthRequest="300" CornerRadius="25">
+            <VerticalStackLayout>
+                <Label x:Name="woda_progres"
+                       FontSize="150"
+                       HorizontalTextAlignment="Center"
+                       Padding="0" Margin="0"
+                       FontFamily="Jersey10"
+                       TextColor="#0D1463"
+                       Text="0%" />
+                <Label x:Name="ile_wypito"
+                       FontSize="30"
+                        HorizontalTextAlignment="Center"
+                        Padding="0" Margin="0"
+                        FontFamily="Jersey10"
+                        TextColor="#0D1463"
+                       Text="wypito 0ml z 1l" />
+            </VerticalStackLayout>
+            
+        </Frame>
+
+    </VerticalStackLayout>
+    
+
+</ContentPage>
