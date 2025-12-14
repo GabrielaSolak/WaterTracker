@@ -9,6 +9,19 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <Style x:Key="mlPrzyciskStyle"
+                   TargetType="Button">
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="WidthRequest" Value="150" />
+                <Setter Property="FontFamily" Value="Jersey10" />
+                <Setter Property="FontSize" Value="30" />
+                <Setter Property="Margin" Value="5" />
+                <Setter Property="TextColor" Value="#C4E3FF" />
+                <Setter Property="CornerRadius" Value="25" />
+                <Setter Property="BorderColor" Value="#0D1463" />
+                <Setter Property="BackgroundColor" Value="#0D1463" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

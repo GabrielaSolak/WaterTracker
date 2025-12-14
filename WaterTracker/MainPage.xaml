@@ -2,51 +2,76 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WaterTracker.MainPage"
+             BackgroundImageSource="bg.png"
              BackgroundColor="LightBlue">
 
-    
-    <VerticalStackLayout Spacing="30">
-        <ImageButton Source="button_settings.png"
+    <ScrollView>
+        <VerticalStackLayout Spacing="30">
+            <ImageButton Source="button_settings.png"
                     HeightRequest="60"
                     WidthRequest="60"
                     HorizontalOptions="End"
                     Margin="10,10,10,10" />
 
-        <Frame BackgroundColor="#0D1463"
-               Margin="0" Padding="0"
-               WidthRequest="230"
-               CornerRadius="25">
-            <Label Text="Pamiętaj o wodzie"
-               HorizontalTextAlignment="Center"
-               FontSize="24"
-               TextColor="#C4E3FF"
-               Margin="5"
-               Padding="0"
-               FontFamily="Jersey10"/>
-        </Frame>
+            <Frame BackgroundColor="#0D1463"
+                   Margin="0" Padding="0"
+                   WidthRequest="230"
+                   CornerRadius="20">
+                <Label Text="Pamiętaj o wodzie"
+                       HorizontalTextAlignment="Center"
+                       FontSize="24"
+                       TextColor="#C4E3FF"
+                       Margin="5"
+                       Padding="0"
+                       FontFamily="Jersey10"/>
+            </Frame>
 
-        <Frame BackgroundColor="#66E5F6FF" Padding="0"
+            <Frame BackgroundColor="#66E5F6FF" Padding="0"
                WidthRequest="300" CornerRadius="25">
-            <VerticalStackLayout>
-                <Label x:Name="woda_progres"
+                <VerticalStackLayout>
+                    <Label x:Name="woda_progres"
                        FontSize="150"
                        HorizontalTextAlignment="Center"
                        Padding="0" Margin="0"
                        FontFamily="Jersey10"
                        TextColor="#0D1463"
                        Text="0%" />
-                <Label x:Name="ile_wypito"
+                    <Label x:Name="ile_wypito"
                        FontSize="30"
                         HorizontalTextAlignment="Center"
                         Padding="0" Margin="0"
                         FontFamily="Jersey10"
                         TextColor="#0D1463"
-                       Text="wypito 0ml z 1l" />
-            </VerticalStackLayout>
-            
-        </Frame>
+                       Text="wypito 0ml z 2l" />
+                </VerticalStackLayout>
+            </Frame>
 
-    </VerticalStackLayout>
-    
+            <Frame BackgroundColor="#66E5F6FF" Padding="0"
+               WidthRequest="300" CornerRadius="25">
+                <Grid ColumnDefinitions="*, *, *, *, *" Margin="5">
+                    <Image x:Name="wiadroA" Source="wiadro_0.png" Grid.Column="0" HeightRequest="45"/>
+                    <Image x:Name="wiadroB" Source="wiadro_0.png" Grid.Column="1" HeightRequest="45"/>
+                    <Image x:Name="wiadroC" Source="wiadro_0.png" Grid.Column="2" HeightRequest="45"/>
+                    <Image x:Name="wiadroD" Source="wiadro_0.png" Grid.Column="3" HeightRequest="45"/>
+                    <Image x:Name="wiadroE" Source="wiadro_0.png" Grid.Column="4" HeightRequest="45"/>
+                </Grid>
+            </Frame>
 
+            <Grid ColumnDefinitions="*, *" RowDefinitions="*,*">
+                <Button Text="50ml" Style="{StaticResource mlPrzyciskStyle}" 
+                        Grid.Row="0" Grid.Column="0"
+                        Clicked="Button_ml_Clicked"/>
+                <Button Text="100ml" Style="{StaticResource mlPrzyciskStyle}" 
+                        Grid.Row="0" Grid.Column="1" 
+                        Clicked="Button_ml_Clicked"/>
+                <Button Text="250ml" Style="{StaticResource mlPrzyciskStyle}" 
+                        Grid.Row="1" Grid.Column="0" 
+                        Clicked="Button_ml_Clicked"/>
+                <Button Text="300ml" Style="{StaticResource mlPrzyciskStyle}" 
+                        Grid.Row="1" Grid.Column="1" 
+                        Clicked="Button_ml_Clicked"/>
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
