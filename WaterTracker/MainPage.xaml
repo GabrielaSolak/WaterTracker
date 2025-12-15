@@ -8,6 +8,7 @@
     <ScrollView>
         <VerticalStackLayout Spacing="30">
             <ImageButton Source="button_settings.png"
+                         Clicked="Reset_Clicked"
                     HeightRequest="60"
                     WidthRequest="60"
                     HorizontalOptions="End"
@@ -72,6 +73,7 @@
                         Clicked="Button_ml_Clicked"/>
             </Grid>
 
+            <Button Text="Przypomnienie" Clicked="przypomnienie_Clicked" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

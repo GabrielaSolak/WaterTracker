@@ -1,4 +1,5 @@
-﻿namespace WaterTracker
+﻿using Plugin.LocalNotification;
+namespace WaterTracker
 {
     public partial class MainPage : ContentPage
     {
@@ -8,7 +9,11 @@
         public MainPage()
         {
             InitializeComponent();
-            woda_progres.Text = $"{lacznie_wypito}%";
+            RequestPermission();
+        }
+        async void RequestPermission()
+        {
+            await LocalNotificationCenter.Current.RequestNotificationPermission();
         }
 
         private void Button_ml_Clicked(object sender, EventArgs e)
@@ -56,6 +61,34 @@
             {
                 wiadroE.Source = "wiadro_1.png";
             }
+        }
+
+        private void Reset_Clicked(object sender, EventArgs e)
+        {
+            lacznie_wypito = 0;
+            ile_wypito.Text = $"wypito {lacznie_wypito}ml z 2l";
+            progres = 0;
+            woda_progres.Text = $"{lacznie_wypito}%";
+            wiadroA.Source = "wiadro_0.png";
+            wiadroB.Source = "wiadro_0.png";
+            wiadroC.Source = "wiadro_0.png";
+            wiadroD.Source = "wiadro_0.png";
+            wiadroE.Source = "wiadro_0.png";
+        }
+
+        private void przypomnienie_Clicked(object sender, EventArgs e)
+        {
+            var przypomnienie = new NotificationRequest
+            {
+                NotificationId = 100,
+                Title = "Przypomnienie o piciu wody",
+                Description = "Pamiętaj o dobrym nawodnieniu",
+                Schedule = new NotificationRequestSchedule
+                {
+                    NotifyTime = DateTime.Now.AddSeconds(2)
+                }
+            };
+            LocalNotificationCenter.Current.Show(przypomnienie);
         }
     }
 }
