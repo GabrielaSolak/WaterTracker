@@ -8,10 +8,11 @@
     <ScrollView>
         <VerticalStackLayout Spacing="30">
             <ImageButton Source="button_settings.png"
-                    HeightRequest="60"
-                    WidthRequest="60"
-                    HorizontalOptions="End"
-                    Margin="10,10,10,10" />
+                         Clicked="settings_Clicked"
+                        HeightRequest="60"
+                        WidthRequest="60"
+                        HorizontalOptions="End"
+                        Margin="10,10,10,10" />
 
             <Frame BackgroundColor="#0D1463"
                    Margin="0" Padding="0"

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WaterTracker.settingsPage"
+             BackgroundImageSource="bg.png"
+             Title="Ustawienia">
+    
+    <VerticalStackLayout VerticalOptions="Center">
+        <Label Text="Ilość ml do wypicia:"
+               TextColor="#0D1463"
+               FontFamily="Jersey10"
+               Margin="15, 0, 0, 0"
+               FontSize="30" />
+
+        <Frame BackgroundColor="#0D1463" CornerRadius="25" 
+               Margin="10" Padding="15, 0, 0, 0"
+               HeightRequest="45">
+            <Entry TextColor="#C4E3FF"
+                   x:Name="liczbaMl"
+                   FontFamily="Jersey10"
+                   FontSize="20"
+                   PlaceholderColor="#C4E3FF"
+                   Placeholder="Podaj liczbę ml..."/>
+        </Frame>
+
+        <Label Text="Ustaw przypomnienie:"
+               TextColor="#0D1463"
+               FontFamily="Jersey10"
+               Margin="15, 25, 0, 0"
+               FontSize="30" />
+        <TimePicker x:Name="timePicker"
+                    Time="09:00:00"
+                    Margin="15, 0, 0, 0"
+                    WidthRequest="200"
+                    HorizontalOptions="Start"/>
+
+        <Label x:Name="bledy" 
+               Text="" 
+               TextColor="Red"
+               HorizontalOptions="Center"
+               FontSize="30"
+               FontFamily="Jersey10"/>
+
+        <Button Text="Zapisz zmiany"
+                Clicked="zapiszZmiany_Clicked"
+                FontFamily="Jersey10"
+                FontSize="20"
+                BackgroundColor="#078CCF"
+                Margin="15"
+                WidthRequest="170"
+                CornerRadius="25"
+                HorizontalOptions="End" />
+    </VerticalStackLayout>
+</ContentPage>

@@ -57,5 +57,12 @@
                 wiadroE.Source = "wiadro_1.png";
             }
         }
+
+        private async void settings_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(nameof(settingsPage));
+
+        }
+
     }
 }
