@@ -41,14 +41,45 @@
                FontSize="30"
                FontFamily="Jersey10"/>
 
-        <Button Text="Zapisz zmiany"
-                Clicked="zapiszZmiany_Clicked"
+        <HorizontalStackLayout HorizontalOptions="Start">
+            <CheckBox CheckedChanged="CheckBox_CheckedChanged" Color="#0D1463"/>
+            <Label Text="Przypomninie o progresie" 
+                   Margin="0, 10, 0, 0"
+                   TextColor="#0D1463"
+                   FontSize="20"
+                   FontFamily="Jersey10"/>
+        </HorizontalStackLayout>
+        
+
+        <HorizontalStackLayout HorizontalOptions="End">
+            <Button Text="Cofnij"
+                Clicked="Cofnij_Clicked"
                 FontFamily="Jersey10"
                 FontSize="20"
                 BackgroundColor="#078CCF"
-                Margin="15"
-                WidthRequest="170"
-                CornerRadius="25"
-                HorizontalOptions="End" />
+                Margin="15, 15, 0, 15"
+                WidthRequest="100"
+                CornerRadius="25"/>
+            <Button Text="Zapisz zmiany"
+                 Clicked="zapiszZmiany_Clicked"
+                 FontFamily="Jersey10"
+                 FontSize="20"
+                 BackgroundColor="#078CCF"
+                 Margin="15"
+                 WidthRequest="170"
+                 CornerRadius="25" />
+        </HorizontalStackLayout>
+        
+        <Button Text="Wyczyść"
+                HorizontalOptions="End"
+                TextColor="#C4E3FF"
+                Clicked="Wyczysc_Clicked"
+                FontFamily="Jersey10"
+                FontSize="20"
+                BackgroundColor="#0D1463"
+                Margin="0, 0, 15, 0"
+                WidthRequest="100"
+                CornerRadius="25"/>
+        
     </VerticalStackLayout>
 </ContentPage>

@@ -1,15 +1,30 @@
-﻿namespace WaterTracker
+﻿using Microsoft.Maui.Storage;
+namespace WaterTracker
 {
     public partial class MainPage : ContentPage
     {
         int lacznie_wypito = 0;
-        int cel = 2000; //2l
+        int cel = 2000;
         int progres = 0;
         public MainPage()
         {
             InitializeComponent();
-            woda_progres.Text = $"{lacznie_wypito}%";
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            cel = Preferences.Get("CelMl", 2000);
+            lacznie_wypito = Preferences.Get("LacznieWypito", 0);
+            progres = Preferences.Get("Progres", 0);
+
+            woda_progres.Text = $"{progres}%";
+            ile_wypito.Text = $"wypito {lacznie_wypito}ml z {cel}ml";
+
+            AktualizujWiadra();
+        }
+
 
         private void Button_ml_Clicked(object sender, EventArgs e)
         {
@@ -34,31 +49,25 @@
             progres = (int)((double)lacznie_wypito / cel * 100); ;
             woda_progres.Text = $"{progres}%";
 
-            ile_wypito.Text = $"wypito {lacznie_wypito}ml z 2l";
+            ile_wypito.Text = $"wypito {lacznie_wypito}ml z {cel}ml";
 
-            if(lacznie_wypito >= cel * 0.2)
-            {
-                wiadroA.Source = "wiadro_1.png";
-            }
-            if (lacznie_wypito >= cel * 0.4)
-            {
-                wiadroB.Source = "wiadro_1.png";
-            }
-            if (lacznie_wypito >= cel * 0.6)
-            {
-                wiadroC.Source = "wiadro_1.png";
-            }
-            if (lacznie_wypito >= cel * 0.8)
-            {
-                wiadroD.Source = "wiadro_1.png";
-            }
-            if (lacznie_wypito >= cel)
-            {
-                wiadroE.Source = "wiadro_1.png";
-            }
+            Preferences.Set("LacznieWypito", lacznie_wypito);
+            Preferences.Set("Progres", progres);
+            AktualizujWiadra();
         }
 
-        private async void settings_Clicked(object sender, EventArgs e)
+        void AktualizujWiadra()
+        {
+            wiadroA.Source = lacznie_wypito >= cel * 0.2 ? "wiadro_1.png" : "wiadro_0.png";
+            wiadroB.Source = lacznie_wypito >= cel * 0.4 ? "wiadro_1.png" : "wiadro_0.png";
+            wiadroC.Source = lacznie_wypito >= cel * 0.6 ? "wiadro_1.png" : "wiadro_0.png";
+            wiadroD.Source = lacznie_wypito >= cel * 0.8 ? "wiadro_1.png" : "wiadro_0.png";
+            wiadroE.Source = lacznie_wypito >= cel ? "wiadro_1.png" : "wiadro_0.png";
+        }
+
+        
+
+        async void settings_Clicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync(nameof(settingsPage));
 

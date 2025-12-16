@@ -12,7 +12,7 @@
                         HeightRequest="60"
                         WidthRequest="60"
                         HorizontalOptions="End"
-                        Margin="10,10,10,10" />
+                        Margin="10" />
 
             <Frame BackgroundColor="#0D1463"
                    Margin="0" Padding="0"
